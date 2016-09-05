@@ -20,12 +20,12 @@ var Content = React.createClass({
 	render: function(){
 		return (
 			<div className="content">
-			<div className="col-md-4 text-md-center">
+			<div className="col-md-4 text-xs-center">
 				<div className="col-md-12">
 					<Button onClick={this.getRandomValue} text={this.state.text} />
 				</div>
 				<div className="col-md-12">
-					<Result>**{this.state.data.join(', ')}**</Result>
+					<Result>{this.state.data.join(', ')}</Result>
 					<History data={this.state.history} />
 				</div>
 			</div>
@@ -68,7 +68,9 @@ var Result = React.createClass({
     },
 	render: function(){
 		return (
-			<span dangerouslySetInnerHTML={this.rawMarkup()} />
+			<p>
+				<strong>{this.props.children.toString()}</strong>
+			</p>
 		);
 	}
 });
