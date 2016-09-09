@@ -8,8 +8,12 @@ var Content = React.createClass({
 
 		var count = 6;
 		var random_value =[];
-		for(var i=0; i<count; i++){
-			random_value.push(Math.floor(Math.random() * 45 + 1));
+		var number;
+		while(random_value.length !== 6){
+			number = Math.floor(Math.random() * 45 + 1);
+			if(random_value.indexOf(number) === -1){
+				random_value.push(number);
+			}
 		}
 		random_value.sort(function(a,b){
       		return a - b;
