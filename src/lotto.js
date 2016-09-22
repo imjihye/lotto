@@ -1,3 +1,8 @@
+import React from 'react';
+import { Button } from 'react-bootstrap';
+
+import $ from 'jquery';
+
 var Content = React.createClass({
 	getInitialState: function(){
 		return ({data: [], history:[], text:'로또번호 6자리 자동생성'});
@@ -20,12 +25,12 @@ var Content = React.createClass({
 	render: function(){
 		return (
 			<div className="content">
-			<div className="col-md-4 text-md-center">
-				<div className="col-md-12">
-					<Button onClick={this.getRandomValue} text={this.state.text} />
+			<div className="col-md-4 text-center">
+				<div>
+					<Button className="btn-success" onClick={this.getRandomValue}>{this.state.text}</Button>
 				</div>
-				<div className="col-md-12">
-					<Result>**{this.state.data.join(', ')}**</Result>
+				<div className="lotto-list">
+					<Result data={this.state.data.join(', ')}></Result>
 					<History data={this.state.history} />
 				</div>
 			</div>
@@ -47,33 +52,12 @@ var History = React.createClass({
 	}
 });
 
-var Button = React.createClass({
-	handlerClick: function(){
-		this.props.onClick();
-	},
-	render: function(){
-		return (
-			<div className="button">
-				<button className="btn btn-success" onClick={this.handlerClick}>{this.props.text.toString()}</button>
-			</div>
-		);
-	}
-});
-
 var Result = React.createClass({
-    rawMarkup: function(){
-        var md = new Remarkable();
-        var rawMarkup = md.render(this.props.children.toString());
-        return ({__html: rawMarkup});
-    },
 	render: function(){
 		return (
-			<span dangerouslySetInnerHTML={this.rawMarkup()} />
+			<strong>{this.props.data}</strong>
 		);
 	}
 });
 
-ReactDOM.render(
-	<Content />,
-	document.getElementById("content")
-);
+export default Content;

@@ -1,0 +1,8 @@
+.lotto-list {
+	max-height: 206px;
+	overflow-y: scroll;
+}
+.lotto-list strong {
+	margin: 4px;
+	display: block;
+}
