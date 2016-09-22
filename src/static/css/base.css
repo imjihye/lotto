@@ -1,6 +1,18 @@
 header {
     margin-bottom: 2rem;
 }
+html, body {
+	height: 100%;
+}
+section {
+	height: 90%;
+}
+
+@media (max-width: 768px) {
+	section {
+		height: auto;
+	}
+}
 
 header, footer {
     background-color: #f8f8f8;
@@ -9,8 +21,6 @@ header, footer {
 footer {
     text-align: center;
     padding: 10px;
-    position: absolute;
-    bottom: 0;
     width: 100%;
 }
 
