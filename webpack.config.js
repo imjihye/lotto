@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var config = {
 	entry: './src/index.js',
@@ -14,7 +14,7 @@ var config = {
 		},{
 			test: /\.js$/,
 			loader: 'babel',
-			exclude: /node_modeuls/,
+			exclude: /node_modules/,
 			query: {
 				cacheDirectory: true,
 				presets: ['es2015', 'react']
